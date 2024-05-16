@@ -1,0 +1,9 @@
+[env:custom_build]
+extends = env:esp32_4MB_S
+build_flags = ${env:esp32_4MB_S.build_flags} ${common.debug_flags} -D SR_DEBUG -D MIC_LOGGER -D LOLIN_WIFI_FIX -D WLED_AP_SSID_UNIQUE -D WLED_DEBUG -D WLED_DEBUG_NTP -D WLED_DEBUG_IMPROV -D WLED_ENABLE_SIMPLE_UI -D WLED_ENABLE_MQTT -D WLED_ENABLE_LOXONE -D WLED_ENABLE_WEBSOCKETS -D WLED_ENABLE_ADALIGHT -D WLED_ENABLE_PIXART -D LEDPIN=2 -D DEFAULT_LED_COUNT=295 -D ABL_MILLIAMPS_DEFAULT=5000 -D CLIENT_SSID='"Tenda_3CE880"' -D CLIENT_PASS='"12345abc"' -D USERMOD_AUTO_SAVE -D USERMOD_SENSORSTOMQTT -D USERMOD_PIRSWITCH
+lib_deps = 
+  ${env:esp32_4MB_S.lib_deps}
+  adafruit/Adafruit BMP280 Library @ 2.1.0
+  adafruit/Adafruit CCS811 Library @ 1.0.4
+  adafruit/Adafruit Si7021 Library @ 1.4.0
+  adafruit/Adafruit Unified Sensor
