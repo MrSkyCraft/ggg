@@ -1,25 +1,27 @@
-[env:custom_build]
-platform = espressif32@5.1.1
-framework = arduino
-board = esp32-c3-devkitm-1
-board_build.partitions = tools/WLED_ESP32_4MB_1MB_FS.csv
-build_flags = 
-  ${common.build_flags} 
-  ${esp32c3.build_flags}
-  -D WLED_WATCHDOG_TIMEOUT=0
-  -D LEDPIN=8
-  -D BTNPIN=9
-  -D RLYPIN=-1
-  -D IRPIN=-1
-  -D USERMOD_AUDIOREACTIVE
-  -D AUDIOPIN=-1  # analog pin
-  -D DMTYPE=1     # 0-analog/disabled, 1-I2S generic, 2-ES7243, 3-SPH0645, 4-I2S+mclk, 5-I2S PDM
-  -D I2S_SDPIN=-1
-  -D I2S_WSPIN=-1
-  -D I2S_CKPIN=-1
-  -D STATUSLED=20 # RX/serial
-  -D WLED_DEBUG
-  -UWLED_USE_MY_CONFIG
-lib_deps = 
-  ${esp32c3.lib_deps}
-  https://github.com/blazoncek/arduinoFFT.git
+env:
+  custom_build:
+    platform: espressif32@5.1.1
+    framework: arduino
+    board: esp32-c3-devkitm-1
+    board_build:
+      partitions: tools/WLED_ESP32_4MB_1MB_FS.csv
+    build_flags:
+      - ${common.build_flags}
+      - ${esp32c3.build_flags}
+      - -D WLED_WATCHDOG_TIMEOUT=0
+      - -D LEDPIN=8
+      - -D BTNPIN=9
+      - -D RLYPIN=-1
+      - -D IRPIN=-1
+      - -D USERMOD_AUDIOREACTIVE
+      - -D AUDIOPIN=-1  # analog pin
+      - -D DMTYPE=1     # 0-analog/disabled, 1-I2S generic, 2-ES7243, 3-SPH0645, 4-I2S+mclk, 5-I2S PDM
+      - -D I2S_SDPIN=-1
+      - -D I2S_WSPIN=-1
+      - -D I2S_CKPIN=-1
+      - -D STATUSLED=20 # RX/serial
+      - -D WLED_DEBUG
+      - -UWLED_USE_MY_CONFIG
+    lib_deps:
+      - ${esp32c3.lib_deps}
+      - https://github.com/blazoncek/arduinoFFT.git
