@@ -1,8 +1,11 @@
+[env:custom_build]
 platform = espressif32@5.1.1
 framework = arduino
 board = esp32-c3-devkitm-1
 board_build.partitions = tools/WLED_ESP32_4MB_1MB_FS.csv
-build_flags = ${common.build_flags} ${esp32c3.build_flags}
+build_flags = 
+  ${common.build_flags} 
+  ${esp32c3.build_flags}
   -D WLED_WATCHDOG_TIMEOUT=0
   -D LEDPIN=8
   -D BTNPIN=9
@@ -17,5 +20,6 @@ build_flags = ${common.build_flags} ${esp32c3.build_flags}
   -D STATUSLED=20 # RX/serial
   -D WLED_DEBUG
   -UWLED_USE_MY_CONFIG
-lib_deps = ${esp32c3.lib_deps}
+lib_deps = 
+  ${esp32c3.lib_deps}
   https://github.com/blazoncek/arduinoFFT.git
